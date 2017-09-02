@@ -24,15 +24,12 @@ class TimeZones {
 	public function init() {
 		$jsLoader = new Libs\ResourceLoader\JavascriptLoader;
 		$jsLoader->init();
-//
+
 		$cssLoader = new Libs\ResourceLoader\CssLoader;
 		$cssLoader->init();
-//
-//		new Libs\PostType;
+		new Libs\Template;
 
-			new Libs\Template;
 		if(\is_admin()) {
-
 			/**
 			 * Check Github for updates
 			 */
