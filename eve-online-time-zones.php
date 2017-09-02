@@ -7,7 +7,7 @@
  * Version: 0.0.1
  * Author: Rounon Dax
  * Author URI: http://yulaifederation.net
- * Text Domain: eve-online-intel-tool
+ * Text Domain: eve-online-time-zones
  * Domain Path: /l10n
  */
 
