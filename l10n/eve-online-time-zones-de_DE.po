@@ -1,0 +1,107 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: EVE Online Time Zone List for WordPress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-06 08:01+0000\n"
+"PO-Revision-Date: 2017-09-06 08:07+0000\n"
+"Last-Translator: ppfeufer <p.pfeufer@thamm-it.de>\n"
+"Language-Team: German\n"
+"Language: de-DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: Libs/GithubUpdater.php:75
+msgid ""
+"The GitHub Updater was initialized without the minimum required "
+"configuration, please check the config in your plugin. The following params "
+"are missing: "
+msgstr ""
+"GitHub Updater wurde nicht mit der Minimalkonfiguration initialisiert. Bitte "
+"die Konfiguration prüfen. Die folgenden Parameter sind benötigt:"
+
+#: Libs/GithubUpdater.php:454
+msgid ""
+"The plugin has been updated, but could not be reactivated. Please reactivate "
+"it manually."
+msgstr ""
+"Das Plugin wurde aktualisiert, konnte aber nicht reaktiviert werden. Bitte "
+"manuell aktivieren."
+
+#: Libs/GithubUpdater.php:455
+msgid "Plugin reactivated successfully."
+msgstr "Plugin erfolgreich reaktiviert"
+
+#: templates/page-eve-time-zones.php:30
+msgid "Local Time"
+msgstr "Lokale Zeit"
+
+#: templates/page-eve-time-zones.php:35
+msgid "EVE Time"
+msgstr "EVE Zeit"
+
+#: templates/page-eve-time-zones.php:40
+msgid "US Pacific"
+msgstr "US Pacific"
+
+#: templates/page-eve-time-zones.php:44
+msgid "US Mountain"
+msgstr "US Mountain"
+
+#: templates/page-eve-time-zones.php:48
+msgid "US Central"
+msgstr "US Central"
+
+#: templates/page-eve-time-zones.php:52
+msgid "US Eastern"
+msgstr "US Eastern"
+
+#: templates/page-eve-time-zones.php:56
+msgid "EU Western / England"
+msgstr "EU Western / England"
+
+#: templates/page-eve-time-zones.php:60
+msgid "EU Central / Berlin"
+msgstr "EU Central / Berlin"
+
+#: templates/page-eve-time-zones.php:64
+msgid "EU Eastern / Turkey"
+msgstr "EU Eastern / Turkei"
+
+#: templates/page-eve-time-zones.php:68
+msgid "Russia / Moscow"
+msgstr "Russland / Moskau"
+
+#: templates/page-eve-time-zones.php:72
+msgid "China / Shanghai"
+msgstr "China / Shanghai"
+
+#: templates/page-eve-time-zones.php:76
+msgid "Australia / Sydney"
+msgstr "Australien / Sydney"
+
+#. Name of the plugin
+msgid "EVE Online Time Zone List for WordPress"
+msgstr "EVE Online Zeitzonen-Liste für WordPress"
+
+#. Description of the plugin
+msgid ""
+"Quick time zone overview. (Best with a theme running with <a href=\"http:"
+"//getbootstrap.com/\">Bootstrap</a>)"
+msgstr ""
+"Schnelle Übersicht über verschiedene Zeitzonen. (Am besten mit einem Theme "
+"welches <a href=\"http://getbootstrap.com/\">Bootstrap</a> nutzt.)"
+
+#. URI of the plugin
+msgid "https://github.com/ppfeufer/eve-online-intel-tool"
+msgstr "https://github.com/ppfeufer/eve-online-intel-tool"
+
+#. Author of the plugin
+msgid "Rounon Dax"
+msgstr "Rounon Dax"
+
+#. Author URI of the plugin
+msgid "http://yulaifederation.net"
+msgstr "http://yulaifederation.net"

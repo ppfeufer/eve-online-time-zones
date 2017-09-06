@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
  * GitHub Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
  * Description: Quick time zone overview. (Best with a theme running with <a href="http://getbootstrap.com/">Bootstrap</a>)
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: Rounon Dax
  * Author URI: http://yulaifederation.net
  * Text Domain: eve-online-time-zones
@@ -18,6 +18,36 @@ const WP_GITHUB_FORCE_UPDATE = true;
 require_once(\trailingslashit(\dirname(__FILE__)) . 'inc/autoloader.php');
 
 class TimeZones {
+	/**
+	 * Plugins text domain for translations
+	 *
+	 * @var string
+	 */
+	private $textDomain = null;
+
+	/**
+	 * Plugin Directory
+	 *
+	 * @var string
+	 */
+	private $pluginDir = null;
+
+	/**
+	 * Directory for translation files
+	 *
+	 * @var string
+	 */
+	private $localizationDirectory = null;
+
+	/**
+	 * Constructor
+	 */
+	public function __construct() {
+		$this->textDomain = 'eve-online-intel-tool';
+		$this->pluginDir = \trailingslashit(\WP_PLUGIN_DIR . \dirname(\plugin_basename(__FILE__)));
+		$this->localizationDirectory = $this->pluginDir . 'l10n/';
+	} // END public function __construct()
+
 	/**
 	 * Initialize the plugin
 	 */
@@ -50,7 +80,16 @@ class TimeZones {
 			new Libs\GithubUpdater($githubConfig);
 		} // END if(\is_admin())
 	} // END public function init()
-}
+
+	/**
+	 * Setting up our text domain for translations
+	 */
+	public function loadTextDomain() {
+		if(\function_exists('\load_plugin_textdomain')) {
+			\load_plugin_textdomain($this->textDomain, false, $this->localizationDirectory);
+		} // END if(function_exists('\load_plugin_textdomain'))
+	} // END public function addTextDomain()
+} // END class TimeZones
 
 /**
  * Start the show ....

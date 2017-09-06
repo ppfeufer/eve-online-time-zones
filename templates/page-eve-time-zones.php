@@ -27,53 +27,53 @@
 								<?php
 								$timeZomes = [
 									[
-										'title' => 'Local Time',
+										'title' => \__('Local Time', 'eve-online-time-zones'),
 										'tzCode' =>'loc',
 										'panel' => 'warning'
 									],
 									[
-										'title' => 'EVE Time',
+										'title' => \__('EVE Time', 'eve-online-time-zones'),
 										'tzCode' =>'utc',
 										'panel' => 'success'
 									],
 									[
-										'title' => 'US Pacific',
+										'title' => \__('US Pacific', 'eve-online-time-zones'),
 										'tzCode' =>'usp'
 									],
 									[
-										'title' => 'US Mountain',
+										'title' => \__('US Mountain', 'eve-online-time-zones'),
 										'tzCode' =>'usm'
 									],
 									[
-										'title' => 'US Central',
+										'title' => \__('US Central', 'eve-online-time-zones'),
 										'tzCode' =>'usc'
 									],
 									[
-										'title' => 'US Eastern',
+										'title' => \__('US Eastern', 'eve-online-time-zones'),
 										'tzCode' =>'use'
 									],
 									[
-										'title' => 'EU Western / England',
+										'title' => \__('EU Western / England', 'eve-online-time-zones'),
 										'tzCode' =>'euw'
 									],
 									[
-										'title' => 'EU Central / Berlin',
+										'title' => \__('EU Central / Berlin', 'eve-online-time-zones'),
 										'tzCode' =>'euc'
 									],
 									[
-										'title' => 'EU Eastern / Turkey',
+										'title' => \__('EU Eastern / Turkey', 'eve-online-time-zones'),
 										'tzCode' =>'eue'
 									],
 									[
-										'title' => 'Russia / Moscow',
+										'title' => \__('Russia / Moscow', 'eve-online-time-zones'),
 										'tzCode' =>'rus'
 									],
 									[
-										'title' => 'China / Shanghai',
+										'title' => \__('China / Shanghai', 'eve-online-time-zones'),
 										'tzCode' =>'cn'
 									],
 									[
-										'title' => 'Australia / Sydney',
+										'title' => \__('Australia / Sydney', 'eve-online-time-zones'),
 										'tzCode' =>'aus'
 									]
 								];
