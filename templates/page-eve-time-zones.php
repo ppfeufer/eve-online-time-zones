@@ -83,6 +83,11 @@
 								} // END foreach($timeZomes as $zone)
 								?>
 							</div>
+
+							<?php
+							\WordPress\Plugin\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('adjust-to-eve-time');
+							?>
+
 						</article>
 					</div> <!-- /.content -->
 				</div> <!-- /.col -->

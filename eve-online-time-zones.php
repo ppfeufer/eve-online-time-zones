@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
  * GitHub Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
  * Description: Quick time zone overview. (Best with a theme running with <a href="http://getbootstrap.com/">Bootstrap</a>)
- * Version: 0.0.3
+ * Version: 0.0.4
  * Author: Rounon Dax
  * Author URI: http://yulaifederation.net
  * Text Domain: eve-online-time-zones
@@ -57,6 +57,7 @@ class TimeZones {
 
 		$cssLoader = new Libs\ResourceLoader\CssLoader;
 		$cssLoader->init();
+
 		new Libs\Template;
 
 		if(\is_admin()) {
