@@ -41,59 +41,6 @@ function hashchange() {
 	switchto(clockTarget);
 }
 
-function clockTick() {
-	updatePanels(new Date());
-}
-
-function switchto(mode) {
-	if(clockTickId !== 0) {
-		clearInterval(clockTickId);
-	}
-
-	if(mode === 0) {
-		jQuery('#headlineCurrent').removeClass('hidden');
-		jQuery('#headlineFixed').addClass('hidden');
-		jQuery('#adjust').addClass('hidden');
-		jQuery('#btnadjust').removeClass('hidden');
-		jQuery('#btnshowcurrent').addClass('hidden');
-
-		if(clockTarget !== 0) {
-			jQuery('#btnshowfixed').removeClass('hidden');
-		}
-
-		jQuery('#btnclear').addClass('hidden');
-
-		clockTickId = setInterval(clockTick, 1000);
-
-		clockTick();
-	} else {
-		jQuery('#headlineCurrent').addClass('hidden');
-		jQuery('#headlineFixed').removeClass('hidden');
-		jQuery('#adjust').addClass('hidden');
-		jQuery('#btnadjust').addClass('hidden');
-		jQuery('#btnshowcurrent').removeClass('hidden');
-		jQuery('#btnshowfixed').addClass('hidden');
-		jQuery('#btnclear').removeClass('hidden');
-
-		updatePanels(new Date(clockTarget));
-	}
-}
-
-function updatePanels(now) {
-	updatePanel(moment(now), 'loc');
-	updatePanel(moment.tz(now, 'Etc/UTC'), 'utc');
-	updatePanel(moment.tz(now, 'US/Pacific'), 'usp');
-	updatePanel(moment.tz(now, 'US/Mountain'), 'usm');
-	updatePanel(moment.tz(now, 'US/Central'), 'usc');
-	updatePanel(moment.tz(now, 'US/Eastern'), 'use');
-	updatePanel(moment.tz(now, 'Australia/ACT'), 'aus');
-	updatePanel(moment.tz(now, 'Europe/London'), 'euw');
-	updatePanel(moment.tz(now, 'Europe/Berlin'), 'euc');
-	updatePanel(moment.tz(now, 'Europe/Istanbul'), 'eue');
-	updatePanel(moment.tz(now, 'Europe/Moscow'), 'rus');
-	updatePanel(moment.tz(now, 'Asia/Shanghai'), 'cn');
-}
-
 function updatePanel(mom, id) {
 //	jQuery('#time-' + id).html(mom.format('HH:mm:ss z'));
 	jQuery('#time-' + id).html(mom.format('HH:mm:ss'));
@@ -145,6 +92,59 @@ function updatePanel(mom, id) {
 	}
 
 	jQuery('#icon-' + id).addClass(icon);
+}
+
+function updatePanels(now) {
+	updatePanel(moment(now), 'loc');
+	updatePanel(moment.tz(now, 'Etc/UTC'), 'utc');
+	updatePanel(moment.tz(now, 'US/Pacific'), 'usp');
+	updatePanel(moment.tz(now, 'US/Mountain'), 'usm');
+	updatePanel(moment.tz(now, 'US/Central'), 'usc');
+	updatePanel(moment.tz(now, 'US/Eastern'), 'use');
+	updatePanel(moment.tz(now, 'Australia/ACT'), 'aus');
+	updatePanel(moment.tz(now, 'Europe/London'), 'euw');
+	updatePanel(moment.tz(now, 'Europe/Berlin'), 'euc');
+	updatePanel(moment.tz(now, 'Europe/Istanbul'), 'eue');
+	updatePanel(moment.tz(now, 'Europe/Moscow'), 'rus');
+	updatePanel(moment.tz(now, 'Asia/Shanghai'), 'cn');
+}
+
+function clockTick() {
+	updatePanels(new Date());
+}
+
+function switchto(mode) {
+	if(clockTickId !== 0) {
+		clearInterval(clockTickId);
+	}
+
+	if(mode === 0) {
+		jQuery('#headlineCurrent').removeClass('hidden');
+		jQuery('#headlineFixed').addClass('hidden');
+		jQuery('#adjust').addClass('hidden');
+		jQuery('#btnadjust').removeClass('hidden');
+		jQuery('#btnshowcurrent').addClass('hidden');
+
+		if(clockTarget !== 0) {
+			jQuery('#btnshowfixed').removeClass('hidden');
+		}
+
+		jQuery('#btnclear').addClass('hidden');
+
+		clockTickId = setInterval(clockTick, 1000);
+
+		clockTick();
+	} else {
+		jQuery('#headlineCurrent').addClass('hidden');
+		jQuery('#headlineFixed').removeClass('hidden');
+		jQuery('#adjust').addClass('hidden');
+		jQuery('#btnadjust').addClass('hidden');
+		jQuery('#btnshowcurrent').removeClass('hidden');
+		jQuery('#btnshowfixed').addClass('hidden');
+		jQuery('#btnclear').removeClass('hidden');
+
+		updatePanels(new Date(clockTarget));
+	}
 }
 
 jQuery(document).ready(function($) {
