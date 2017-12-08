@@ -152,6 +152,7 @@ jQuery(document).ready(function($) {
 
 	var mom = moment.tz(new Date(), 'Etc/UTC');
 	var year = mom.format('YYYY') * 1;
+	var i;
 
 	for(i = year - 4; i < year + 5; i++) {
 		$('#tatyear').append($('<option>', {i: i}).text(i));
