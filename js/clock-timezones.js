@@ -14,7 +14,7 @@ function showAdjust() {
 	jQuery('#tatday').val(mom.format('DD'));
 	jQuery('#tatmonth').val(mom.format('MM'));
 	jQuery('#tatyear').val(mom.format('YYYY'));
-}
+} // function showAdjust()
 
 function setdate(str, tz) {
 	if(tz !== '') {
@@ -22,7 +22,7 @@ function setdate(str, tz) {
 	} else {
 		window.location.hash = moment(str).unix();
 	}
-}
+} // function setdate(str, tz)
 
 function updatePanel(mom, id) {
 //	jQuery('#time-' + id).html(mom.format('HH:mm:ss z'));
@@ -75,7 +75,7 @@ function updatePanel(mom, id) {
 	}
 
 	jQuery('#icon-' + id).addClass(icon);
-}
+} // function updatePanel(mom, id)
 
 function updatePanels(now) {
 	updatePanel(moment(now), 'loc');
@@ -90,11 +90,11 @@ function updatePanels(now) {
 	updatePanel(moment.tz(now, 'Europe/Istanbul'), 'eue');
 	updatePanel(moment.tz(now, 'Europe/Moscow'), 'rus');
 	updatePanel(moment.tz(now, 'Asia/Shanghai'), 'cn');
-}
+} // function updatePanels(now)
 
 function clockTick() {
 	updatePanels(new Date());
-}
+} // function clockTick()
 
 function switchto(mode) {
 	if(clockTickId !== 0) {
@@ -128,7 +128,7 @@ function switchto(mode) {
 
 		updatePanels(new Date(clockTarget));
 	}
-}
+} // function switchto(mode)
 
 function hashchange() {
 	var ts = window.location.hash.substring(1);
@@ -145,11 +145,14 @@ function hashchange() {
 	}
 
 	switchto(clockTarget);
-}
+} // function hashchange()
 
 jQuery(document).ready(function($) {
 	window.addEventListener('hashchange', hashchange, false);
 
+	/**
+	 * Declaring some variables ...
+	 */
 	var mom = moment.tz(new Date(), 'Etc/UTC');
 	var year = mom.format('YYYY') * 1;
 	var i;

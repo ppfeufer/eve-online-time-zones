@@ -1,11 +1,11 @@
 <p class="text-right">
-	<button id="btnadjust" class="btn btn-info btn-xs hidden" onclick="showAdjust();">Adjust Time</button>
-	<button id="btnclear" class="btn btn-danger btn-xs hidden" onclick="window.location.hash = '';">Remove</button>
-	<button id="btnshowcurrent" class="btn btn-primary btn-xs hidden" onclick="switchto(0);">Switch to Current Time</button>
-	<button id="btnshowfixed" class="btn btn-primary btn-xs hidden" onclick="switchto(1);">Switch to Timestamp</button>
+	<button id="btnadjust" class="btn btn-info btn-xs hidden" onclick="showAdjust();"><?php echo \__('Adjust Time', 'eve-online-time-zones'); ?></button>
+	<button id="btnclear" class="btn btn-danger btn-xs hidden" onclick="window.location.hash = '';"><?php echo \__('Remove', 'eve-online-time-zones'); ?></button>
+	<button id="btnshowcurrent" class="btn btn-primary btn-xs hidden" onclick="switchto(0);"><?php echo \__('Switch to Current Time', 'eve-online-time-zones'); ?></button>
+	<button id="btnshowfixed" class="btn btn-primary btn-xs hidden" onclick="switchto(1);"><?php echo \__('Switch to Timestamp', 'eve-online-time-zones'); ?></button>
 </p>
 
-<div id="adjust" class="hidden">
+<div id="adjust" class="hidden eve-online-time-zones-time-adjust">
 	<hr>
 	<span class="pull-right text-right">
 		<form class="form-inline">
@@ -22,7 +22,7 @@
 						<option>6</option>
 						<option>7</option>
 					</select>
-					<div class="input-group-addon">days</div>
+					<div class="input-group-addon"><?php echo \__('Days', 'eve-online-time-zones'); ?></div>
 				</div>
 
 				<div class="input-group input-group-sm">
@@ -52,7 +52,7 @@
 						<option>22</option>
 						<option>23</option>
 					</select>
-					<div class="input-group-addon">hours</div>
+					<div class="input-group-addon"><?php echo \__('Hours', 'eve-online-time-zones'); ?></div>
 				</div>
 
 				<div class="input-group input-group-sm">
@@ -118,9 +118,9 @@
 						<option>58</option>
 						<option>59</option>
 					</select>
-					<div class="input-group-addon">minutes</div>
+					<div class="input-group-addon"><?php echo \__('Minutes', 'eve-online-time-zones'); ?></div>
 				</div>
-				<button class="btn btn-info btn-sm" onclick="window.location.hash = (parseInt(new Date().getTime() / 1000) + jQuery('#tind').val() * 24 * 60 * 60 + jQuery('#tinh').val() * 60 * 60 + jQuery('#tinm').val() * 60);">Set Time</button>
+				<button class="btn btn-info btn-sm" onclick="window.location.hash = (parseInt(new Date().getTime() / 1000) + jQuery('#tind').val() * 24 * 60 * 60 + jQuery('#tinh').val() * 60 * 60 + jQuery('#tinm').val() * 60);"><?php echo \__('Set Time', 'eve-online-time-zones'); ?></button>
 			</div>
 		</form>
 
@@ -221,18 +221,18 @@
 
 				<div class="input-group input-group-sm">
 					<select class="form-control" id="tatzone">
-						<option value="Etc/UTC" selected>EVE Time</option>
-						<option value="">Local</option>
-						<option value="US/Pacific">US Pacific</option>
-						<option value="US/Mountain">US Mountain</option>
-						<option value="US/Central">US Central</option>
-						<option value="US/Eastern">US Eastern</option>
-						<option value="Europe/London">EU Western / England</option>
-						<option value="Europe/Berlin">EU Central / Berlin</option>
-						<option value="Europe/Istanbul">EU Eastern / Turkey</option>
-						<option value="Europe/Moscow">Russia / Moscow</option>
-						<option value="Asia/Shanghai">China / Shanghai</option>
-						<option value="Australia/ACT">Australia / Sydney</option>
+						<option value="Etc/UTC" selected><?php echo \__('EVE Time', 'eve-online-time-zones'); ?></option>
+						<option value=""><?php echo \__('Local Time', 'eve-online-time-zones'); ?></option>
+						<option value="US/Pacific"><?php echo \__('US Pacific', 'eve-online-time-zones'); ?></option>
+						<option value="US/Mountain"><?php echo \__('US Mountain', 'eve-online-time-zones'); ?></option>
+						<option value="US/Central"><?php echo \__('US Central', 'eve-online-time-zones'); ?></option>
+						<option value="US/Eastern"><?php echo \__('US Eastern', 'eve-online-time-zones'); ?></option>
+						<option value="Europe/London"><?php echo \__('EU Western / England', 'eve-online-time-zones'); ?></option>
+						<option value="Europe/Berlin"><?php echo \__('EU Central / Berlin', 'eve-online-time-zones'); ?></option>
+						<option value="Europe/Istanbul"><?php echo \__('EU Eastern / Turkey', 'eve-online-time-zones'); ?></option>
+						<option value="Europe/Moscow"><?php echo \__('Russia / Moscow', 'eve-online-time-zones'); ?></option>
+						<option value="Asia/Shanghai"><?php echo \__('China / Shanghai', 'eve-online-time-zones'); ?></option>
+						<option value="Australia/ACT"><?php echo \__('Australia / Sydney', 'eve-online-time-zones'); ?></option>
 					</select>
 				</div>
 
@@ -289,7 +289,7 @@
 						<option>31</option>
 					</select>
 				</div>
-				<button class="btn btn-info btn-sm" onclick="setdate(jQuery('#tatyear').val() + '-' + jQuery('#tatmonth').val() + '-' + jQuery('#tatday').val() + ' ' + jQuery('#tathour').val() + ':' + jQuery('#tatminute').val(), jQuery('#tatzone').val());">Set Time</button>
+				<button class="btn btn-info btn-sm" onclick="setdate(jQuery('#tatyear').val() + '-' + jQuery('#tatmonth').val() + '-' + jQuery('#tatday').val() + ' ' + jQuery('#tathour').val() + ':' + jQuery('#tatminute').val(), jQuery('#tatzone').val());"><?php echo \__('Set Time', 'eve-online-time-zones'); ?></button>
 			</div>
 		</form>
 	</span>
