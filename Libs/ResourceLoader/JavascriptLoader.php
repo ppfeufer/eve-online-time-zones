@@ -49,32 +49,7 @@ class JavascriptLoader implements \WordPress\Plugin\EveOnlineTimeZones\Libs\Inte
 				\wp_enqueue_script('moment-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/moment.min.js', ['jquery'], '', true);
 				\wp_enqueue_script('timeago-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/jquery.timeago.min.js', ['jquery'], '', true);
 				\wp_enqueue_script('timezone-data-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/moment-timezone-with-data-2012-2022.min.js', ['jquery'], '', true);
-
-//				\wp_enqueue_script('eve-online-intel-tool-js', \WordPress\Plugin\EveOnlineIntelTool\Libs\Helper\PluginHelper::getInstance()->getPluginUri('js/eve-online-intel-tool.min.js'), ['jquery'], '', true);
-//				\wp_localize_script('eve-online-intel-tool-js', 'eveIntelToolL10n', $this->getJavaScriptTranslations());
 			} // END if(\preg_match('/(.*)\/page-eve-time-zones.php/', $template))
 		} // END if(!\is_admin())
 	} // END public function enqueue()
-
-	/**
-	 * Getting teh translation array to translate strings in JavaScript
-	 *
-	 * @return array
-	 */
-	private function getJavaScriptTranslations() {
-		return [
-			'copyToClipboard' => [
-				'permalink' => [
-					'text' => [
-						'success' => \__('Permalink successfully copied', 'eve-online-intel-tool'),
-						'error' => \__('Something went wrong. Nothing copied. Maybe your browser doesn\'t support this function.', 'eve-online-intel-tool')
-					]
-				]
-			],
-//			'ajax' => [
-//				'url' => \admin_url('admin-ajax.php'),
-//				'loaderImage' => \WordPress\Plugin\EveOnlineIntelTool\Libs\Helper\PluginHelper::getPluginUri('images/loader-sprite.gif')
-//			]
-		];
-	} // END private function getJavaScriptTranslations()
 } // END class JavascriptLoader implements \WordPress\Plugin\EveOnlineIntelTool\Libs\Interfaces\AssetsInterface
