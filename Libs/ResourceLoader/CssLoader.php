@@ -48,6 +48,7 @@ class CssLoader implements \WordPress\Plugin\EveOnlineTimeZones\Libs\Interfaces\
 			if(\preg_match('/(.*)\/page-eve-time-zones.php/', $template)) {
 				\wp_enqueue_style('bootstrap', \WP_PLUGIN_URL . '/eve-online-time-zones/bootstrap/css/bootstrap.min.css');
 				\wp_enqueue_style('weather-icons', \WP_PLUGIN_URL . '/eve-online-time-zones/css/weather-icons/css/weather-icons.min.css');
+				\wp_enqueue_style('eve-online-time-zones', \WP_PLUGIN_URL . '/eve-online-time-zones/css/eve-online-time-zones.min.css');
 			} // END if(\preg_match('/(.*)\/page-eve-time-zones.php/', $template))
 		} // END if(!\is_admin())
 	} // END public function enqueue()
