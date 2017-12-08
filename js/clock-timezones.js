@@ -24,23 +24,6 @@ function setdate(str, tz) {
 	}
 }
 
-function hashchange() {
-	var ts = window.location.hash.substring(1);
-
-	clockTarget = 0;
-
-	if(!isNaN(parseFloat(ts)) && isFinite(ts)) {
-		clockTarget = ts * 1000;
-
-		var mom = moment.tz(new Date(clockTarget), 'Etc/UTC');
-
-		jQuery('#timestamp').attr('datetime', mom.format('YYYY-MM-DDTHH:mm:00Z0000'));
-		jQuery('#timestamp').timeago('update', new Date(clockTarget));
-	}
-
-	switchto(clockTarget);
-}
-
 function updatePanel(mom, id) {
 //	jQuery('#time-' + id).html(mom.format('HH:mm:ss z'));
 	jQuery('#time-' + id).html(mom.format('HH:mm:ss'));
@@ -145,6 +128,23 @@ function switchto(mode) {
 
 		updatePanels(new Date(clockTarget));
 	}
+}
+
+function hashchange() {
+	var ts = window.location.hash.substring(1);
+
+	clockTarget = 0;
+
+	if(!isNaN(parseFloat(ts)) && isFinite(ts)) {
+		clockTarget = ts * 1000;
+
+		var mom = moment.tz(new Date(clockTarget), 'Etc/UTC');
+
+		jQuery('#timestamp').attr('datetime', mom.format('YYYY-MM-DDTHH:mm:00Z0000'));
+		jQuery('#timestamp').timeago('update', new Date(clockTarget));
+	}
+
+	switchto(clockTarget);
 }
 
 jQuery(document).ready(function($) {
