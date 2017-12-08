@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
  * GitHub Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
  * Description: Quick time zone overview. (Best with a theme running with <a href="http://getbootstrap.com/">Bootstrap</a>)
- * Version: 0.0.3
+ * Version: 0.0.4
  * Author: Rounon Dax
  * Author URI: http://yulaifederation.net
  * Text Domain: eve-online-time-zones
@@ -43,20 +43,23 @@ class TimeZones {
 	 * Constructor
 	 */
 	public function __construct() {
-		$this->textDomain = 'eve-online-intel-tool';
+		$this->textDomain = 'eve-online-time-zones';
 		$this->pluginDir = \trailingslashit(\WP_PLUGIN_DIR . \dirname(\plugin_basename(__FILE__)));
-		$this->localizationDirectory = $this->pluginDir . 'l10n/';
+		$this->localizationDirectory = \basename(\dirname(__FILE__)) . '/l10n';
 	} // END public function __construct()
 
 	/**
 	 * Initialize the plugin
 	 */
 	public function init() {
+		$this->initHooks();
+
 		$jsLoader = new Libs\ResourceLoader\JavascriptLoader;
 		$jsLoader->init();
 
 		$cssLoader = new Libs\ResourceLoader\CssLoader;
 		$cssLoader->init();
+
 		new Libs\Template;
 
 		if(\is_admin()) {
@@ -72,7 +75,7 @@ class TimeZones {
 				'zip_url' => 'https://github.com/ppfeufer/eve-online-time-zones/archive/master.zip',
 				'sslverify' => true,
 				'requires' => '4.7',
-				'tested' => '4.9-alpha',
+				'tested' => '5.0-alpha',
 				'readme' => 'README.md',
 				'access_token' => '',
 			];
@@ -88,7 +91,12 @@ class TimeZones {
 		if(\function_exists('\load_plugin_textdomain')) {
 			\load_plugin_textdomain($this->textDomain, false, $this->localizationDirectory);
 		} // END if(function_exists('\load_plugin_textdomain'))
-	} // END public function addTextDomain()
+	}
+
+	public function initHooks() {
+		\add_action('plugins_loaded', [$this, 'loadTextDomain']);
+	}
+// END public function loadTextDomain()
 } // END class TimeZones
 
 /**
@@ -97,13 +105,7 @@ class TimeZones {
 function initializePlugin() {
 	$plugin = new TimeZones;
 
-	/**
-	 * Initialize the plugin
-	 *
-	 * @todo https://premium.wpmudev.org/blog/activate-deactivate-uninstall-hooks/
-	 */
 	$plugin->init();
 } // END function initializePlugin()
 
-// Start the show
-\add_action('plugins_loaded', 'WordPress\Plugin\EveOnlineTimeZones\initializePlugin');
+initializePlugin();

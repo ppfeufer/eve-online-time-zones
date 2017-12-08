@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EVE Online Time Zone List for WordPress\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-06 08:01+0000\n"
-"PO-Revision-Date: 2017-09-06 08:07+0000\n"
+"POT-Creation-Date: 2017-12-08 13:32+0000\n"
+"PO-Revision-Date: 2017-12-08 13:32+0000\n"
 "Last-Translator: Rounon Dax <rounon.dax@yulaifederation.net>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -34,51 +34,83 @@ msgstr ""
 msgid "Plugin reactivated successfully."
 msgstr "Plugin erfolgreich reaktiviert"
 
-#: templates/page-eve-time-zones.php:30
-msgid "Local Time"
-msgstr "Lokale Zeit"
+#: templates/adjust-to-eve-time.php:2
+msgid "Adjust Time"
+msgstr "Zeit anpassen"
 
-#: templates/page-eve-time-zones.php:35
+#: templates/adjust-to-eve-time.php:3
+msgid "Remove"
+msgstr "Entfernen"
+
+#: templates/adjust-to-eve-time.php:4
+msgid "Switch to Current Time"
+msgstr "Zur aktuellen Zeit wechseln"
+
+#: templates/adjust-to-eve-time.php:5
+msgid "Switch to Timestamp"
+msgstr "Zum Zeitstempel wechseln"
+
+#: templates/adjust-to-eve-time.php:25
+msgid "Days"
+msgstr "Tage"
+
+#: templates/adjust-to-eve-time.php:55
+msgid "Hours"
+msgstr "Stunden"
+
+#: templates/adjust-to-eve-time.php:121
+msgid "Minutes"
+msgstr "Minuten"
+
+#: templates/adjust-to-eve-time.php:123 templates/adjust-to-eve-time.php:292
+msgid "Set Time"
+msgstr "Setze Zeit"
+
+#: templates/adjust-to-eve-time.php:224 templates/page-eve-time-zones.php:35
 msgid "EVE Time"
 msgstr "EVE Zeit"
 
-#: templates/page-eve-time-zones.php:40
+#: templates/adjust-to-eve-time.php:225 templates/page-eve-time-zones.php:30
+msgid "Local Time"
+msgstr "Lokale Zeit"
+
+#: templates/adjust-to-eve-time.php:226 templates/page-eve-time-zones.php:40
 msgid "US Pacific"
 msgstr "US Pacific"
 
-#: templates/page-eve-time-zones.php:44
+#: templates/adjust-to-eve-time.php:227 templates/page-eve-time-zones.php:44
 msgid "US Mountain"
 msgstr "US Mountain"
 
-#: templates/page-eve-time-zones.php:48
+#: templates/adjust-to-eve-time.php:228 templates/page-eve-time-zones.php:48
 msgid "US Central"
 msgstr "US Central"
 
-#: templates/page-eve-time-zones.php:52
+#: templates/adjust-to-eve-time.php:229 templates/page-eve-time-zones.php:52
 msgid "US Eastern"
 msgstr "US Eastern"
 
-#: templates/page-eve-time-zones.php:56
+#: templates/adjust-to-eve-time.php:230 templates/page-eve-time-zones.php:56
 msgid "EU Western / England"
 msgstr "EU Western / England"
 
-#: templates/page-eve-time-zones.php:60
+#: templates/adjust-to-eve-time.php:231 templates/page-eve-time-zones.php:60
 msgid "EU Central / Berlin"
 msgstr "EU Central / Berlin"
 
-#: templates/page-eve-time-zones.php:64
+#: templates/adjust-to-eve-time.php:232 templates/page-eve-time-zones.php:64
 msgid "EU Eastern / Turkey"
 msgstr "EU Eastern / Turkei"
 
-#: templates/page-eve-time-zones.php:68
+#: templates/adjust-to-eve-time.php:233 templates/page-eve-time-zones.php:68
 msgid "Russia / Moscow"
 msgstr "Russland / Moskau"
 
-#: templates/page-eve-time-zones.php:72
+#: templates/adjust-to-eve-time.php:234 templates/page-eve-time-zones.php:72
 msgid "China / Shanghai"
 msgstr "China / Shanghai"
 
-#: templates/page-eve-time-zones.php:76
+#: templates/adjust-to-eve-time.php:235 templates/page-eve-time-zones.php:76
 msgid "Australia / Sydney"
 msgstr "Australien / Sydney"
 
