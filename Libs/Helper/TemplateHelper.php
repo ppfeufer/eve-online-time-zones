@@ -17,11 +17,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace WordPress\Plugin\EveOnlineTimeZones\Libs\Helper;
+namespace WordPress\Plugins\EveOnlineTimeZones\Libs\Helper;
 
 \defined('ABSPATH') or die();
 
-class TemplateHelper extends \WordPress\Plugin\EveOnlineTimeZones\Libs\Singletons\AbstractSingleton {
+class TemplateHelper extends \WordPress\Plugins\EveOnlineTimeZones\Libs\Singletons\AbstractSingleton {
 	/**
 	 * Locate template.
 	 *
@@ -102,4 +102,4 @@ class TemplateHelper extends \WordPress\Plugin\EveOnlineTimeZones\Libs\Singleton
 
 		include $template_file;
 	} // END function getTemplate($template_name, $args = array(), $tempate_path = '', $default_path = '')
-} // END class TemplateHelper extends \WordPress\Plugin\EveOnlineTimeZones\Libs\Singletons\AbstractSingleton
+} // END class TemplateHelper extends \WordPress\Plugins\EveOnlineTimeZones\Libs\Singletons\AbstractSingleton

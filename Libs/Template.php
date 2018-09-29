@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace WordPress\Plugin\EveOnlineTimeZones\Libs;
+namespace WordPress\Plugins\EveOnlineTimeZones\Libs;
 
 \defined('ABSPATH') or die();
 

@@ -17,14 +17,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace WordPress\Plugin\EveOnlineTimeZones\Libs\ResourceLoader;
+namespace WordPress\Plugins\EveOnlineTimeZones\Libs\ResourceLoader;
 
 \defined('ABSPATH') or die();
 
 /**
  * CSS Loader
  */
-class CssLoader implements \WordPress\Plugin\EveOnlineTimeZones\Libs\Interfaces\AssetsInterface {
+class CssLoader implements \WordPress\Plugins\EveOnlineTimeZones\Libs\Interfaces\AssetsInterface {
 	/**
 	 * Initialize the loader
 	 */

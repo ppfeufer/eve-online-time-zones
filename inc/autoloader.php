@@ -1,14 +1,14 @@
 <?php
 
-namespace WordPress\Plugin\EveOnlineTimeZones;
+namespace WordPress\Plugins\EveOnlineTimeZones;
 
-\spl_autoload_register('\WordPress\Plugin\EveOnlineTimeZones\autoload');
+\spl_autoload_register('\WordPress\Plugins\EveOnlineTimeZones\autoload');
 
 function autoload($className) {
 	// If the specified $className does not include our namespace, duck out.
-	if(\strpos($className, 'WordPress\Plugin\EveOnlineTimeZones') === false) {
+	if(\strpos($className, 'WordPress\Plugins\EveOnlineTimeZones') === false) {
 		return;
-	} // END if(\strpos($className, 'WordPress\Plugin\EveOnlineTimeZones') === false)
+	} // END if(\strpos($className, 'WordPress\Plugins\EveOnlineTimeZones') === false)
 
 	// Split the class name into an array to read the namespace and class.
 	$fileParts = \explode('\\', $className);

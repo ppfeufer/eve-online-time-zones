@@ -97,13 +97,13 @@
 								];
 
 								foreach($timeZomes as $zone) {
-									\WordPress\Plugin\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('timezone-panel', $zone);
+									\WordPress\Plugins\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('timezone-panel', $zone);
 								} // END foreach($timeZomes as $zone)
 								?>
 							</div>
 
 							<?php
-							\WordPress\Plugin\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('adjust-to-eve-time');
+							\WordPress\Plugins\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('adjust-to-eve-time');
 							?>
 
 						</article>

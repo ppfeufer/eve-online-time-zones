@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace WordPress\Plugin\EveOnlineTimeZones\Libs;
+namespace WordPress\Plugins\EveOnlineTimeZones\Libs;
 
 \defined('ABSPATH') or die();
 
@@ -152,7 +152,7 @@ class GithubUpdater {
 	 * @return bool overrule or not
 	 */
 	public function overruleTransients() {
-		return (\defined('\WordPress\Plugin\EveOnlineTimeZones\EveOnlineTimeZones') && \WordPress\Plugin\EveOnlineTimeZones\WP_GITHUB_FORCE_UPDATE);
+		return (\defined('\WordPress\Plugins\EveOnlineTimeZones\EveOnlineTimeZones') && \WordPress\Plugins\EveOnlineTimeZones\WP_GITHUB_FORCE_UPDATE);
 	} // END public function overruleTransients()
 
 	/**

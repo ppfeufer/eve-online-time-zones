@@ -28,7 +28,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace WordPress\Plugin\EveOnlineTimeZones;
+namespace WordPress\Plugins\EveOnlineTimeZones;
 const WP_GITHUB_FORCE_UPDATE = true;
 
 // Include the autoloader so we can dynamically include the rest of the classes.
