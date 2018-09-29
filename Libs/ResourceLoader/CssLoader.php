@@ -25,31 +25,31 @@ namespace WordPress\Plugins\EveOnlineTimeZones\Libs\ResourceLoader;
  * CSS Loader
  */
 class CssLoader implements \WordPress\Plugins\EveOnlineTimeZones\Libs\Interfaces\AssetsInterface {
-	/**
-	 * Initialize the loader
-	 */
-	public function init() {
-		\add_action('wp_enqueue_scripts', [$this, 'enqueue'], 99);
-	} // END public function init()
+    /**
+     * Initialize the loader
+     */
+    public function init() {
+        \add_action('wp_enqueue_scripts', [$this, 'enqueue'], 99);
+    }
 
-	/**
-	 * Load the styles
-	 */
-	public function enqueue() {
-		/**
-		 * Only in Frontend
-		 */
-		if(!\is_admin()) {
-			/**
-			 * load only when needed
-			 */
-			global $template;
+    /**
+     * Load the styles
+     */
+    public function enqueue() {
+        /**
+         * Only in Frontend
+         */
+        if(!\is_admin()) {
+            /**
+             * load only when needed
+             */
+            global $template;
 
-			if(\preg_match('/(.*)\/page-eve-time-zones.php/', $template)) {
-				\wp_enqueue_style('bootstrap', \WP_PLUGIN_URL . '/eve-online-time-zones/bootstrap/css/bootstrap.min.css');
-				\wp_enqueue_style('weather-icons', \WP_PLUGIN_URL . '/eve-online-time-zones/css/weather-icons/css/weather-icons.min.css');
-				\wp_enqueue_style('eve-online-time-zones', \WP_PLUGIN_URL . '/eve-online-time-zones/css/eve-online-time-zones.min.css');
-			} // END if(\preg_match('/(.*)\/page-eve-time-zones.php/', $template))
-		} // END if(!\is_admin())
-	} // END public function enqueue()
-} // END class CssLoader implements \WordPress\Plugin\EveOnlineIntelTool\Libs\Interfaces\AssetsInterface
+            if(\preg_match('/(.*)\/page-eve-time-zones.php/', $template)) {
+                \wp_enqueue_style('bootstrap', \WP_PLUGIN_URL . '/eve-online-time-zones/bootstrap/css/bootstrap.min.css');
+                \wp_enqueue_style('weather-icons', \WP_PLUGIN_URL . '/eve-online-time-zones/css/weather-icons/css/weather-icons.min.css');
+                \wp_enqueue_style('eve-online-time-zones', \WP_PLUGIN_URL . '/eve-online-time-zones/css/eve-online-time-zones.min.css');
+            }
+        }
+    }
+}

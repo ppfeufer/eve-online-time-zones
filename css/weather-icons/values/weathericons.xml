@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="wi_day_sunny">&#xf00d;</string>
     <string name="wi_day_cloudy">&#xf002;</string>
     <string name="wi_day_cloudy_gusts">&#xf000;</string>
@@ -597,5 +596,4 @@
     <string name="wi_wu_sunny">&#xf00d;</string>
     <string name="wi_wu_tstorms">&#xf01e;</string>
     <string name="wi_wu_unknown">&#xf00d;</string>
-
 </resources>

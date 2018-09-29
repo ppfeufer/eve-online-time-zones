@@ -26,7 +26,7 @@ namespace WordPress\Plugins\EveOnlineTimeZones\Libs\Interfaces;
  * stylesheets, JavaScript, or other assets should implement.
  */
 interface AssetsInterface {
-	public function init();
+    public function init();
 
-	public function enqueue();
-} // END interface AssetsInterface
+    public function enqueue();
+}
