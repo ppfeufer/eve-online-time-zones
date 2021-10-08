@@ -1,172 +1,239 @@
-/* global moment */
+/* global moment, eveOnlineTimezonesTranslations */
 
-var clockTarget = 0;
-var clockTickId = 0;
+let clockTarget = 0;
+let clockTickId = 0;
+let countdownIntervalId = 0;
 
 function showAdjust() {
-	jQuery('#btnadjust').addClass('hidden');
-	jQuery('#adjust').removeClass('hidden');
+    'use strict';
 
-	var mom = moment.tz(new Date(), 'Etc/UTC');
+    jQuery('#btnadjust').addClass('hidden');
+    jQuery('#adjust').removeClass('hidden');
 
-	jQuery('#tathour').val(mom.format('HH'));
-	jQuery('#tatminute').val(mom.format('mm'));
-	jQuery('#tatday').val(mom.format('DD'));
-	jQuery('#tatmonth').val(mom.format('MM'));
-	jQuery('#tatyear').val(mom.format('YYYY'));
-} // function showAdjust()
+    let mom = moment.tz(new Date(), 'Etc/UTC');
+
+    jQuery('#tathour').val(mom.format('HH'));
+    jQuery('#tatminute').val(mom.format('mm'));
+    jQuery('#tatday').val(mom.format('DD'));
+    jQuery('#tatmonth').val(mom.format('MM'));
+    jQuery('#tatyear').val(mom.format('YYYY'));
+}
 
 function setdate(str, tz) {
-	if(tz !== '') {
-		window.location.hash = moment.tz(str, tz).unix();
-	} else {
-		window.location.hash = moment(str).unix();
-	}
-} // function setdate(str, tz)
+    'use strict';
+
+    if (tz !== '') {
+        window.location.hash = moment.tz(str, tz).unix();
+    } else {
+        window.location.hash = moment(str).unix();
+    }
+}
 
 function updatePanel(mom, id) {
-//	jQuery('#time-' + id).html(mom.format('HH:mm:ss z'));
-	jQuery('#time-' + id).html(mom.format('HH:mm:ss'));
-	jQuery('#date-' + id).html(mom.format('dddd DD MMM YYYY'));
+    'use strict';
 
-//	3 06-09 sunrise
-//	3 09-11 sun
-//	3 11-14 sun
-//	3 14-17 sun
-//	3 17-20 sunset
-//	3 20-23 moonrise
-//	4 23-03 moon
-//	3 03-06 moonset
-	jQuery('#icon-' + id).removeClass();
+//    jQuery('#time-' + id).html(mom.format('HH:mm:ss z'));
+    jQuery('#time-' + id).html(mom.format('HH:mm:ss'));
+    jQuery('#date-' + id).html(mom.format('dddd DD MMM YYYY'));
 
-	var h = mom.format('H') * 1;
-	var icon = 'wi wi-night-clear';
+//    3 06-09 sunrise
+//    3 09-11 sun
+//    3 11-14 sun
+//    3 14-17 sun
+//    3 17-20 sunset
+//    3 20-23 moonrise
+//    4 23-03 moon
+//    3 03-06 moonset
+    let iconElement = jQuery('#icon-' + id);
+    iconElement.removeClass();
 
-	if(h < 23) {
-		icon = 'wi wi-moonrise';
-	}
+    let h = mom.format('H') * 1;
+    let icon = 'wi wi-night-clear';
 
-	if(h < 20) {
-		icon = 'wi wi-sunset';
-	}
+    if (h < 23) {
+        icon = 'wi wi-moonrise';
+    }
 
-	if(h < 17) {
-		icon = 'wi wi-day-sunny';
-	}
+    if (h < 20) {
+        icon = 'wi wi-sunset';
+    }
 
-	if(h < 14) {
-		icon = 'wi wi-day-sunny';
-	}
+    if (h < 17) {
+        icon = 'wi wi-day-sunny';
+    }
 
-	if(h < 11) {
-		icon = 'wi wi-day-sunny';
-	}
+    if (h < 14) {
+        icon = 'wi wi-day-sunny';
+    }
 
-	if(h < 9) {
-		icon = 'wi wi-sunrise';
-	}
+    if (h < 11) {
+        icon = 'wi wi-day-sunny';
+    }
 
-	if(h < 6) {
-		icon = 'wi wi-moonset';
-	}
+    if (h < 9) {
+        icon = 'wi wi-sunrise';
+    }
 
-	if(h < 3) {
-		icon = 'wi wi-night-clear';
-	}
+    if (h < 6) {
+        icon = 'wi wi-moonset';
+    }
 
-	jQuery('#icon-' + id).addClass(icon);
-} // function updatePanel(mom, id)
+    if (h < 3) {
+        icon = 'wi wi-night-clear';
+    }
+
+    iconElement.addClass(icon);
+}
 
 function updatePanels(now) {
-	updatePanel(moment(now), 'loc');
-	updatePanel(moment.tz(now, 'Etc/UTC'), 'utc');
-	updatePanel(moment.tz(now, 'US/Pacific'), 'usp');
-	updatePanel(moment.tz(now, 'US/Mountain'), 'usm');
-	updatePanel(moment.tz(now, 'US/Central'), 'usc');
-	updatePanel(moment.tz(now, 'US/Eastern'), 'use');
-	updatePanel(moment.tz(now, 'Australia/ACT'), 'aus');
-	updatePanel(moment.tz(now, 'Europe/London'), 'euw');
-	updatePanel(moment.tz(now, 'Europe/Berlin'), 'euc');
-	updatePanel(moment.tz(now, 'Europe/Istanbul'), 'eue');
-	updatePanel(moment.tz(now, 'Europe/Moscow'), 'rus');
-	updatePanel(moment.tz(now, 'Asia/Shanghai'), 'cn');
-} // function updatePanels(now)
+    'use strict';
+
+    updatePanel(moment(now), 'loc');
+    updatePanel(moment.tz(now, 'Etc/UTC'), 'utc');
+    updatePanel(moment.tz(now, 'US/Pacific'), 'usp');
+    updatePanel(moment.tz(now, 'US/Mountain'), 'usm');
+    updatePanel(moment.tz(now, 'US/Central'), 'usc');
+    updatePanel(moment.tz(now, 'US/Eastern'), 'use');
+    updatePanel(moment.tz(now, 'Australia/ACT'), 'aus');
+    updatePanel(moment.tz(now, 'Europe/London'), 'euw');
+    updatePanel(moment.tz(now, 'Europe/Berlin'), 'euc');
+    updatePanel(moment.tz(now, 'Europe/Istanbul'), 'eue');
+    updatePanel(moment.tz(now, 'Europe/Moscow'), 'rus');
+    updatePanel(moment.tz(now, 'Asia/Shanghai'), 'cn');
+}
+
+function timeUntil(timestamp) {
+    'use strict';
+
+    let timestampDifference = timestamp - Date.now();
+    let timeDifferenceInSeconds = timestampDifference / 1000; // from ms to seconds
+
+    // set the interval
+    countdownIntervalId = setInterval(function () {
+        let countdown;
+
+        // execute code each second
+        timeDifferenceInSeconds--; // decrement timestamp with one second each second
+
+        if (timeDifferenceInSeconds >= 0) {
+            let days = Math.floor(timeDifferenceInSeconds / (24 * 60 * 60)); // calculate days from timestamp
+            let hours = Math.floor(timeDifferenceInSeconds / (60 * 60)) % 24; // hours
+            let minutes = Math.floor(timeDifferenceInSeconds / 60) % 60; // minutes
+            let seconds = Math.floor(timeDifferenceInSeconds) % 60; // seconds
+
+            // leading zero ...
+            if (hours < 10) {
+                hours = '0' + hours;
+            }
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+            if (seconds < 10) {
+                seconds = '0' + seconds;
+            }
+
+            countdown = days + ' ' + eveOnlineTimezonesTranslations.days + ', ' + hours + ':' + minutes + ':' + seconds;
+        } else {
+            countdown = eveOnlineTimezonesTranslations.alreadyOver;
+        }
+
+        jQuery('.eve-online-timezones-time-until-countdown').html(countdown);
+    }, 1000);
+}
 
 function clockTick() {
-	updatePanels(new Date());
-} // function clockTick()
+    'use strict';
+
+    updatePanels(new Date());
+}
 
 function switchto(mode) {
-	if(clockTickId !== 0) {
-		clearInterval(clockTickId);
-	}
+    'use strict';
 
-	if(mode === 0) {
-		jQuery('#headlineCurrent').removeClass('hidden');
-		jQuery('#headlineFixed').addClass('hidden');
-		jQuery('#adjust').addClass('hidden');
-		jQuery('#btnadjust').removeClass('hidden');
-		jQuery('#btnshowcurrent').addClass('hidden');
+    if (clockTickId !== 0) {
+        clearInterval(clockTickId);
+    }
 
-		if(clockTarget !== 0) {
-			jQuery('#btnshowfixed').removeClass('hidden');
-		}
+    if (countdownIntervalId !== 0) {
+        clearInterval(countdownIntervalId);
+    }
 
-		jQuery('#btnclear').addClass('hidden');
+    jQuery('.eve-online-timezones-time-until-countdown').html('');
 
-		clockTickId = setInterval(clockTick, 1000);
+    if (mode === 0) {
+        jQuery('#headlineCurrent').removeClass('hidden');
+        jQuery('#headlineFixed').addClass('hidden');
+        jQuery('#adjust').addClass('hidden');
+        jQuery('#btnadjust').removeClass('hidden');
+        jQuery('#btnshowcurrent').addClass('hidden');
+        jQuery('.eve-online-timezones-time-until').addClass('hidden');
 
-		clockTick();
-	} else {
-		jQuery('#headlineCurrent').addClass('hidden');
-		jQuery('#headlineFixed').removeClass('hidden');
-		jQuery('#adjust').addClass('hidden');
-		jQuery('#btnadjust').addClass('hidden');
-		jQuery('#btnshowcurrent').removeClass('hidden');
-		jQuery('#btnshowfixed').addClass('hidden');
-		jQuery('#btnclear').removeClass('hidden');
+        if (clockTarget !== 0) {
+            jQuery('#btnshowfixed').removeClass('hidden');
+        }
 
-		updatePanels(new Date(clockTarget));
-	}
-} // function switchto(mode)
+        jQuery('#btnclear').addClass('hidden');
+
+        clockTickId = setInterval(clockTick, 1000);
+
+        clockTick();
+    } else {
+        jQuery('#headlineCurrent').addClass('hidden');
+        jQuery('#headlineFixed').removeClass('hidden');
+        jQuery('#adjust').addClass('hidden');
+        jQuery('#btnadjust').addClass('hidden');
+        jQuery('#btnshowcurrent').removeClass('hidden');
+        jQuery('#btnshowfixed').addClass('hidden');
+        jQuery('#btnclear').removeClass('hidden');
+        jQuery('.eve-online-timezones-time-until').removeClass('hidden');
+
+        updatePanels(new Date(clockTarget));
+        timeUntil(clockTarget);
+    }
+}
 
 function hashchange() {
-	var ts = window.location.hash.substring(1);
+    'use strict';
 
-	clockTarget = 0;
+    let ts = window.location.hash.substring(1);
 
-	if(!isNaN(parseFloat(ts)) && isFinite(ts)) {
-		clockTarget = ts * 1000;
+    clockTarget = 0;
 
-		var mom = moment.tz(new Date(clockTarget), 'Etc/UTC');
+    if (!isNaN(parseFloat(ts)) && isFinite(parseInt(ts))) {
+        clockTarget = ts * 1000;
 
-		jQuery('#timestamp').attr('datetime', mom.format('YYYY-MM-DDTHH:mm:00Z0000'));
-		jQuery('#timestamp').timeago('update', new Date(clockTarget));
-	}
+        let mom = moment.tz(new Date(clockTarget), 'Etc/UTC');
+        let timestampElement = jQuery('#timestamp');
 
-	switchto(clockTarget);
-} // function hashchange()
+        timestampElement.attr('datetime', mom.format('YYYY-MM-DDTHH:mm:00Z0000'));
+        timestampElement.timeago('update', new Date(clockTarget));
+    }
 
-jQuery(document).ready(function($) {
-	window.addEventListener('hashchange', hashchange, false);
+    switchto(clockTarget);
+}
 
-	/**
-	 * Declaring some variables ...
-	 */
-	var mom = moment.tz(new Date(), 'Etc/UTC');
-	var year = mom.format('YYYY') * 1;
-	var i;
+jQuery(document).ready(function ($) {
+    'use strict';
 
-	for(i = year - 4; i < year + 5; i++) {
-		$('#tatyear').append($('<option>', {i: i}).text(i));
-	}
+    window.addEventListener('hashchange', hashchange, false);
 
-	$.timeago.settings.allowFuture = true;
-	$.timeago.settings.allowPast = true;
+    /**
+     * Declaring some variables ...
+     */
+    let mom = moment.tz(new Date(), 'Etc/UTC');
+    let year = mom.format('YYYY') * 1;
+    let i;
 
-	setInterval(function() {
-		$('#timestamp').timeago('update', new Date(clockTarget));
-	}, 10000);
+    for (i = year - 4; i < year + 5; i++) {
+        $('#tatyear').append($('<option>', {i: i}).text(i));
+    }
 
-	hashchange();
+    $.timeago.settings.allowFuture = true;
+    $.timeago.settings.allowPast = true;
+
+    setInterval(function () {
+        $('#timestamp').timeago('update', new Date(clockTarget));
+    }, 10000);
+
+    hashchange();
 });
