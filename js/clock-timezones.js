@@ -1,13 +1,16 @@
-/* global moment */
+/* global moment, eveOnlineTimezonesTranslations */
 
-var clockTarget = 0;
-var clockTickId = 0;
+let clockTarget = 0;
+let clockTickId = 0;
+let countdownIntervalId = 0;
 
 function showAdjust() {
+    'use strict';
+
     jQuery('#btnadjust').addClass('hidden');
     jQuery('#adjust').removeClass('hidden');
 
-    var mom = moment.tz(new Date(), 'Etc/UTC');
+    let mom = moment.tz(new Date(), 'Etc/UTC');
 
     jQuery('#tathour').val(mom.format('HH'));
     jQuery('#tatminute').val(mom.format('mm'));
@@ -17,6 +20,8 @@ function showAdjust() {
 } // function showAdjust()
 
 function setdate(str, tz) {
+    'use strict';
+
     if(tz !== '') {
         window.location.hash = moment.tz(str, tz).unix();
     } else {
@@ -25,6 +30,8 @@ function setdate(str, tz) {
 } // function setdate(str, tz)
 
 function updatePanel(mom, id) {
+    'use strict';
+
 //    jQuery('#time-' + id).html(mom.format('HH:mm:ss z'));
     jQuery('#time-' + id).html(mom.format('HH:mm:ss'));
     jQuery('#date-' + id).html(mom.format('dddd DD MMM YYYY'));
@@ -39,8 +46,8 @@ function updatePanel(mom, id) {
 //    3 03-06 moonset
     jQuery('#icon-' + id).removeClass();
 
-    var h = mom.format('H') * 1;
-    var icon = 'wi wi-night-clear';
+    let h = mom.format('H') * 1;
+    let icon = 'wi wi-night-clear';
 
     if(h < 23) {
         icon = 'wi wi-moonrise';
@@ -78,6 +85,8 @@ function updatePanel(mom, id) {
 }
 
 function updatePanels(now) {
+    'use strict';
+
     updatePanel(moment(now), 'loc');
     updatePanel(moment.tz(now, 'Etc/UTC'), 'utc');
     updatePanel(moment.tz(now, 'US/Pacific'), 'usp');
@@ -92,14 +101,57 @@ function updatePanels(now) {
     updatePanel(moment.tz(now, 'Asia/Shanghai'), 'cn');
 }
 
+function timeUntil(timestamp) {
+    'use strict';
+
+    let timestampDifference = timestamp - Date.now();
+    let timeDifferenceInSeconds = timestampDifference / 1000; // from ms to seconds
+
+    // set the interval
+    countdownIntervalId = setInterval(function() {
+        let countdown;
+
+        // execute code each second
+        timeDifferenceInSeconds--; // decrement timestamp with one second each second
+
+        if(timeDifferenceInSeconds >= 0) {
+            let days = Math.floor(timeDifferenceInSeconds / (24 * 60 * 60)); // calculate days from timestamp
+            let hours = Math.floor(timeDifferenceInSeconds / (60 * 60)) % 24; // hours
+            let minutes = Math.floor(timeDifferenceInSeconds / 60) % 60; // minutes
+            let seconds = Math.floor(timeDifferenceInSeconds / 1) % 60; // seconds
+
+            // leading zero ...
+            if(hours < 10) {hours = '0' + hours;}
+            if(minutes < 10) {minutes = '0' + minutes;}
+            if(seconds < 10) {seconds = '0' + seconds;}
+
+            countdown = days + ' ' + eveOnlineTimezonesTranslations.days + ', ' + hours + ':' + minutes + ':' + seconds;
+        } else {
+            countdown = eveOnlineTimezonesTranslations.alreadyOver;
+        }
+
+        jQuery('.eve-online-timezones-time-until-countdown').html(countdown);
+    }, 1000);
+}
+
 function clockTick() {
+    'use strict';
+
     updatePanels(new Date());
 } // function clockTick()
 
 function switchto(mode) {
+    'use strict';
+
     if(clockTickId !== 0) {
         clearInterval(clockTickId);
     }
+
+    if(countdownIntervalId !== 0) {
+        clearInterval(countdownIntervalId);
+    }
+
+    jQuery('.eve-online-timezones-time-until-countdown').html('');
 
     if(mode === 0) {
         jQuery('#headlineCurrent').removeClass('hidden');
@@ -107,6 +159,7 @@ function switchto(mode) {
         jQuery('#adjust').addClass('hidden');
         jQuery('#btnadjust').removeClass('hidden');
         jQuery('#btnshowcurrent').addClass('hidden');
+        jQuery('.eve-online-timezones-time-until').addClass('hidden');
 
         if(clockTarget !== 0) {
             jQuery('#btnshowfixed').removeClass('hidden');
@@ -125,20 +178,24 @@ function switchto(mode) {
         jQuery('#btnshowcurrent').removeClass('hidden');
         jQuery('#btnshowfixed').addClass('hidden');
         jQuery('#btnclear').removeClass('hidden');
+        jQuery('.eve-online-timezones-time-until').removeClass('hidden');
 
         updatePanels(new Date(clockTarget));
+        timeUntil(clockTarget);
     }
 }
 
 function hashchange() {
-    var ts = window.location.hash.substring(1);
+    'use strict';
+
+    let ts = window.location.hash.substring(1);
 
     clockTarget = 0;
 
     if(!isNaN(parseFloat(ts)) && isFinite(ts)) {
         clockTarget = ts * 1000;
 
-        var mom = moment.tz(new Date(clockTarget), 'Etc/UTC');
+        let mom = moment.tz(new Date(clockTarget), 'Etc/UTC');
 
         jQuery('#timestamp').attr('datetime', mom.format('YYYY-MM-DDTHH:mm:00Z0000'));
         jQuery('#timestamp').timeago('update', new Date(clockTarget));
@@ -148,14 +205,16 @@ function hashchange() {
 }
 
 jQuery(document).ready(function($) {
+    'use strict';
+
     window.addEventListener('hashchange', hashchange, false);
 
     /**
      * Declaring some variables ...
      */
-    var mom = moment.tz(new Date(), 'Etc/UTC');
-    var year = mom.format('YYYY') * 1;
-    var i;
+    let mom = moment.tz(new Date(), 'Etc/UTC');
+    let year = mom.format('YYYY') * 1;
+    let i;
 
     for(i = year - 4; i < year + 5; i++) {
         $('#tatyear').append($('<option>', {i: i}).text(i));

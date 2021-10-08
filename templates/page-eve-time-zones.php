@@ -39,11 +39,18 @@
                             <?php \the_content(); ?>
 
                             <div class="row">
+                                <script type='application/javascript'>
+                                    let eveOnlineTimezonesTranslations = {
+                                        days: "<?php echo \__('Days', 'eve-online-time-zones'); ?>",
+                                        alreadyOver: "<?php echo \__('Already over, you missed it!', 'eve-online-time-zones'); ?>"
+                                    };
+                                </script>
+
                                 <!--
                                 // Local Time
                                 -->
                                 <?php
-                                $timeZomes = [
+                                $timeZones = [
                                     [
                                         'title' => \__('Local Time', 'eve-online-time-zones'),
                                         'tzCode' =>'loc',
@@ -96,16 +103,16 @@
                                     ]
                                 ];
 
-                                foreach($timeZomes as $zone) {
+                                foreach($timeZones as $zone) {
                                     \WordPress\Plugins\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('timezone-panel', $zone);
                                 }
                                 ?>
                             </div>
 
                             <?php
+                            \WordPress\Plugins\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('time-until');
                             \WordPress\Plugins\EveOnlineTimeZones\Libs\Helper\TemplateHelper::getInstance()->getTemplate('adjust-to-eve-time');
                             ?>
-
                         </article>
                     </div> <!-- /.content -->
                 </div> <!-- /.col -->
