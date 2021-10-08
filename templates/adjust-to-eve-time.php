@@ -19,10 +19,10 @@
 
 ?>
 <p class="text-right">
-    <button id="btnadjust" class="btn btn-info btn-xs hidden" onclick="showAdjust();"><?php echo \__('Adjust Time', 'eve-online-time-zones'); ?></button>
-    <button id="btnclear" class="btn btn-danger btn-xs hidden" onclick="window.location.hash = '';"><?php echo \__('Remove', 'eve-online-time-zones'); ?></button>
-    <button id="btnshowcurrent" class="btn btn-primary btn-xs hidden" onclick="switchto(0);"><?php echo \__('Switch to Current Time', 'eve-online-time-zones'); ?></button>
-    <button id="btnshowfixed" class="btn btn-primary btn-xs hidden" onclick="switchto(1);"><?php echo \__('Switch to Timestamp', 'eve-online-time-zones'); ?></button>
+    <button id="btnadjust" class="btn btn-info btn-sm hidden" onclick="showAdjust();"><?php echo \__('Adjust Time', 'eve-online-time-zones'); ?></button>
+    <button id="btnclear" class="btn btn-danger btn-sm^ hidden" onclick="window.location.hash = '';"><?php echo \__('Remove', 'eve-online-time-zones'); ?></button>
+    <button id="btnshowcurrent" class="btn btn-primary btn-sm hidden" onclick="switchto(0);"><?php echo \__('Switch to Current Time', 'eve-online-time-zones'); ?></button>
+    <button id="btnshowfixed" class="btn btn-primary btn-sm hidden" onclick="switchto(1);"><?php echo \__('Switch to Timestamp', 'eve-online-time-zones'); ?></button>
 </p>
 
 <div id="adjust" class="hidden eve-online-time-zones-time-adjust">
