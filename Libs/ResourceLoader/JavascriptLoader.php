@@ -48,7 +48,7 @@ class JavascriptLoader implements \WordPress\Plugins\EveOnlineTimeZones\Libs\Int
                 \wp_enqueue_script('clock-timezones-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/clock-timezones.min.js', ['jquery'], '', true);
                 \wp_enqueue_script('moment-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/moment.min.js', ['jquery'], '', true);
                 \wp_enqueue_script('timeago-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/jquery.timeago.min.js', ['jquery'], '', true);
-                \wp_enqueue_script('timezone-data-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/moment-timezone-with-data-2012-2022.min.js', ['jquery'], '', true);
+                \wp_enqueue_script('timezone-data-js', \WP_PLUGIN_URL . '/eve-online-time-zones/js/moment-timezone-with-data-1970-2030.min.js', ['jquery'], '', true);
             }
         }
     }
