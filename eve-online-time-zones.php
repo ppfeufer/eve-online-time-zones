@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: EVE Online Time Zone List for WordPress
- * Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
- * GitHub Plugin URI: https://github.com/ppfeufer/eve-online-intel-tool
+ * Plugin URI: https://github.com/ppfeufer/eve-online-time-zones
+ * GitHub Plugin URI: https://github.com/ppfeufer/eve-online-time-zones
  * Description: Quick time zone overview. (Best with a theme running with <a href="http://getbootstrap.com/">Bootstrap</a>)
  * Version: 0.0.5
  * Author: Rounon Dax
